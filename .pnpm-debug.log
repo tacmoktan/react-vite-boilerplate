@@ -2,18 +2,815 @@
   "0 debug pnpm:scope": {
     "selected": 1
   },
-  "1 error pnpm": {
-    "errno": 1,
-    "code": "ELIFECYCLE",
-    "pkgid": "vite-project@0.0.0",
-    "stage": "dev",
-    "script": "vite",
-    "pkgname": "vite-project",
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "vite-project",
+      "private": true,
+      "version": "0.0.0",
+      "author": {
+        "name": "Tashi Lama",
+        "url": "https://github.com/tacmoktan",
+        "email": "tacmoktan@gmail.com"
+      },
+      "engines": {
+        "node": ">=14",
+        "yarn": "Please-use-pnpm",
+        "pnpm": ">=7",
+        "npm": "Please-use-pnpm"
+      },
+      "scripts": {
+        "commit": "cz",
+        "prepare": "husky install",
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "sync:i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
+        "i18": "pnpm sync:i18",
+        "preview": "vite preview",
+        "format": "prettier -uw --ignore-path .gitignore .",
+        "run-tsc": "tsc",
+        "run-eslint": "eslint --cache --fix --ignore-path .gitignore --ext .ts,.tsx src",
+        "run-stylelint": "stylelint --cache --fix --ignore-path .gitignore \"**/*.css\"",
+        "lint": "run-p run-tsc run-eslint run-stylelint",
+        "mock:server": "json-server --watch ./mock/index.json --config ./mock/config.json",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "test": "vitest",
+        "coverage": "vitest run --coverage"
+      },
+      "dependencies": {
+        "@ant-design/cssinjs": "^1.4.0",
+        "@ant-design/plots": "^1.2.2",
+        "@hookform/resolvers": "^2.9.10",
+        "@tanstack/react-query": "^4.12.0",
+        "@tanstack/react-query-devtools": "^4.12.0",
+        "antd": "^5.1.2",
+        "axios": "^1.1.3",
+        "i18next": "^22.0.2",
+        "i18next-browser-languagedetector": "^6.1.8",
+        "i18next-http-backend": "^1.4.4",
+        "path-to-regexp": "^6.2.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-hook-form": "^7.38.0",
+        "react-i18next": "^12.0.0",
+        "react-icons": "^4.6.0",
+        "react-perfect-scrollbar": "^1.5.8",
+        "react-router-dom": "^6.4.2",
+        "secure-ls": "^1.2.6",
+        "styled-components": "^5.3.6",
+        "zod": "^3.19.1"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.19.6",
+        "@mdx-js/react": "^1.6.2",
+        "@storybook/addon-actions": "^6.5.12",
+        "@storybook/addon-backgrounds": "^6.5.12",
+        "@storybook/addon-docs": "^6.5.12",
+        "@storybook/addon-essentials": "^6.5.12",
+        "@storybook/addon-interactions": "^6.5.12",
+        "@storybook/addon-links": "^6.5.12",
+        "@storybook/addon-measure": "^6.5.12",
+        "@storybook/addon-outline": "^6.5.12",
+        "@storybook/builder-vite": "^0.2.4",
+        "@storybook/client-api": "^6.5.12",
+        "@storybook/preview-web": "^6.5.12",
+        "@storybook/react": "^6.5.12",
+        "@storybook/testing-library": "^0.0.13",
+        "@svgr/rollup": "^6.5.0",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/react-hooks": "^8.0.1",
+        "@testing-library/user-event": "^14.4.3",
+        "@types/aria-query": "^5.0.0",
+        "@types/node": "^18.11.6",
+        "@types/prettier": "^2.7.1",
+        "@types/react": "^18.0.17",
+        "@types/react-dom": "^18.0.6",
+        "@types/styled-components": "^5.1.26",
+        "@typescript-eslint/eslint-plugin": "^5.40.1",
+        "@typescript-eslint/parser": "^5.40.1",
+        "@vitejs/plugin-react": "^2.1.0",
+        "autoprefixer": "^10.4.12",
+        "babel-loader": "^8.2.5",
+        "commitizen": "^4.2.5",
+        "cross-env": "^7.0.3",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^8.25.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.6.1",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.31.10",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "husky": "^8.0.1",
+        "jsdom": "^20.0.1",
+        "json-server": "^0.17.0",
+        "less": "^4.1.3",
+        "lint-staged": "^13.0.3",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.4.18",
+        "prettier": "^2.7.1",
+        "prettier-plugin-tailwindcss": "^0.1.13",
+        "preview.js": "link:@storybook/addon-docs/preview.js",
+        "react-is": "18.2.0",
+        "stylelint": "^14.14.0",
+        "stylelint-config-prettier": "^9.0.3",
+        "stylelint-config-standard": "^29.0.0",
+        "tailwindcss": "^3.1.8",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.6.4",
+        "vite": "^3.1.0",
+        "vite-plugin-imp": "^2.3.0",
+        "vitest": "^0.24.3"
+      },
+      "browserslist": {
+        "production": "Edge >= 18, Firefox >= 60, Chrome >= 61, Safari >= 11, Opera >= 48",
+        "development": [
+          "last 1 chrome version",
+          "last 1 firefox version"
+        ]
+      },
+      "lint-staged": {
+        "*": "prettier -uw",
+        "*.css": "stylelint --cache --fix",
+        "*.{ts,tsx}": [
+          "eslint --cache --fix"
+        ]
+      },
+      "peerDependencies": {
+        "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+        "react-is": "18.2.0",
+        "require-from-string": "^2.0.2"
+      }
+    },
+    "prefix": "D:\\VarosaTech\\react-vite-boilerplate"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": true,
+    "storeDir": "D:\\.pnpm-store\\v3",
+    "virtualStoreDir": "D:\\VarosaTech\\react-vite-boilerplate\\node_modules\\.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "D:\\VarosaTech\\react-vite-boilerplate",
+    "stage": "resolution_started"
+  },
+  "4 error pnpm": {
+    "code": "ERR_PNPM_SPEC_NOT_SUPPORTED_BY_ANY_RESOLVER",
+    "pkgsStack": [],
     "err": {
       "name": "pnpm",
-      "message": "vite-project@0.0.0 dev: `vite`\nExit status 1",
-      "code": "ELIFECYCLE",
-      "stack": "pnpm: vite-project@0.0.0 dev: `vite`\nExit status 1\n    at EventEmitter.<anonymous> (C:\\snapshot\\dist\\pnpm.cjs)\n    at EventEmitter.emit (events.js:400:28)\n    at ChildProcess.<anonymous> (C:\\snapshot\\dist\\pnpm.cjs)\n    at ChildProcess.emit (events.js:400:28)\n    at maybeClose (internal/child_process.js:1088:16)\n    at Process.ChildProcess._handle.onexit (internal/child_process.js:296:5)"
+      "message": "@types/@ant-design/cssinjs isn't supported by any available resolver.",
+      "code": "ERR_PNPM_SPEC_NOT_SUPPORTED_BY_ANY_RESOLVER",
+      "stack": "pnpm: @types/@ant-design/cssinjs isn't supported by any available resolver.\n    at Object.resolve (C:\\snapshot\\dist\\pnpm.cjs)\n    at async run (C:\\snapshot\\dist\\pnpm.cjs)"
+    }
+  },
+  "5 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@babel/core/7.19.6",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@babel/core",
+      "rawSpec": "^7.19.6"
+    }
+  },
+  "6 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@mdx-js/react/1.6.22",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@mdx-js/react",
+      "rawSpec": "^1.6.2"
+    }
+  },
+  "7 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/addon-actions/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/addon-actions",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "8 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/addon-backgrounds/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/addon-backgrounds",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "9 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/addon-docs/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/addon-docs",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "10 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/addon-essentials/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/addon-essentials",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "11 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/addon-interactions/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/addon-interactions",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "12 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/addon-links/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/addon-links",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "13 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/addon-measure/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/addon-measure",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "14 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/addon-outline/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/addon-outline",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "15 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/builder-vite/0.2.4",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/builder-vite",
+      "rawSpec": "^0.2.4"
+    }
+  },
+  "16 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/client-api/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/client-api",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "17 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/preview-web/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/preview-web",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "18 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/react/6.5.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/react",
+      "rawSpec": "^6.5.12"
+    }
+  },
+  "19 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@storybook/testing-library/0.0.13",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@storybook/testing-library",
+      "rawSpec": "^0.0.13"
+    }
+  },
+  "20 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@svgr/rollup/6.5.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@svgr/rollup",
+      "rawSpec": "^6.5.0"
+    }
+  },
+  "21 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@testing-library/jest-dom/5.16.5",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@testing-library/jest-dom",
+      "rawSpec": "^5.16.5"
+    }
+  },
+  "22 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@testing-library/react/13.4.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@testing-library/react",
+      "rawSpec": "^13.4.0"
+    }
+  },
+  "23 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@testing-library/react-hooks/8.0.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@testing-library/react-hooks",
+      "rawSpec": "^8.0.1"
+    }
+  },
+  "24 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@testing-library/user-event/14.4.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@testing-library/user-event",
+      "rawSpec": "^14.4.3"
+    }
+  },
+  "25 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/aria-query/5.0.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@types/aria-query",
+      "rawSpec": "^5.0.0"
+    }
+  },
+  "26 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/node/18.11.6",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@types/node",
+      "rawSpec": "^18.11.6"
+    }
+  },
+  "27 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/prettier/2.7.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@types/prettier",
+      "rawSpec": "^2.7.1"
+    }
+  },
+  "28 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/react/18.0.21",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@types/react",
+      "rawSpec": "^18.0.17"
+    }
+  },
+  "29 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/react-dom/18.0.6",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@types/react-dom",
+      "rawSpec": "^18.0.6"
+    }
+  },
+  "30 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/styled-components/5.1.26",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@types/styled-components",
+      "rawSpec": "^5.1.26"
+    }
+  },
+  "31 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@typescript-eslint/eslint-plugin/5.40.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@typescript-eslint/eslint-plugin",
+      "rawSpec": "^5.40.1"
+    }
+  },
+  "32 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@typescript-eslint/parser/5.40.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@typescript-eslint/parser",
+      "rawSpec": "^5.40.1"
+    }
+  },
+  "33 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@vitejs/plugin-react/2.1.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@vitejs/plugin-react",
+      "rawSpec": "^2.1.0"
+    }
+  },
+  "34 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/autoprefixer/10.4.12",
+    "wanted": {
+      "dependentId": ".",
+      "name": "autoprefixer",
+      "rawSpec": "^10.4.12"
+    }
+  },
+  "35 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/babel-loader/8.2.5",
+    "wanted": {
+      "dependentId": ".",
+      "name": "babel-loader",
+      "rawSpec": "^8.2.5"
+    }
+  },
+  "36 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/commitizen/4.2.5",
+    "wanted": {
+      "dependentId": ".",
+      "name": "commitizen",
+      "rawSpec": "^4.2.5"
+    }
+  },
+  "37 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/cross-env/7.0.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "cross-env",
+      "rawSpec": "^7.0.3"
+    }
+  },
+  "38 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/cz-conventional-changelog/3.3.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "cz-conventional-changelog",
+      "rawSpec": "^3.3.0"
+    }
+  },
+  "39 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint/8.25.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "eslint",
+      "rawSpec": "^8.25.0"
+    }
+  },
+  "40 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint-config-prettier/8.5.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "eslint-config-prettier",
+      "rawSpec": "^8.5.0"
+    }
+  },
+  "41 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint-plugin-import/2.26.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "eslint-plugin-import",
+      "rawSpec": "^2.26.0"
+    }
+  },
+  "42 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint-plugin-jsx-a11y/6.6.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "eslint-plugin-jsx-a11y",
+      "rawSpec": "^6.6.1"
+    }
+  },
+  "43 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint-plugin-prettier/4.2.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "eslint-plugin-prettier",
+      "rawSpec": "^4.2.1"
+    }
+  },
+  "44 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint-plugin-react/7.31.10",
+    "wanted": {
+      "dependentId": ".",
+      "name": "eslint-plugin-react",
+      "rawSpec": "^7.31.10"
+    }
+  },
+  "45 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint-plugin-react-hooks/4.6.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "eslint-plugin-react-hooks",
+      "rawSpec": "^4.6.0"
+    }
+  },
+  "46 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/husky/8.0.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "husky",
+      "rawSpec": "^8.0.1"
+    }
+  },
+  "47 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/jsdom/20.0.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "jsdom",
+      "rawSpec": "^20.0.1"
+    }
+  },
+  "48 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/json-server/0.17.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "json-server",
+      "rawSpec": "^0.17.0"
+    }
+  },
+  "49 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/less/4.1.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "less",
+      "rawSpec": "^4.1.3"
+    }
+  },
+  "50 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/lint-staged/13.0.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "lint-staged",
+      "rawSpec": "^13.0.3"
+    }
+  },
+  "51 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/npm-run-all/4.1.5",
+    "wanted": {
+      "dependentId": ".",
+      "name": "npm-run-all",
+      "rawSpec": "^4.1.5"
+    }
+  },
+  "52 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/postcss/8.4.18",
+    "wanted": {
+      "dependentId": ".",
+      "name": "postcss",
+      "rawSpec": "^8.4.18"
+    }
+  },
+  "53 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/prettier/2.7.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "prettier",
+      "rawSpec": "^2.7.1"
+    }
+  },
+  "54 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/prettier-plugin-tailwindcss/0.1.13",
+    "wanted": {
+      "dependentId": ".",
+      "name": "prettier-plugin-tailwindcss",
+      "rawSpec": "^0.1.13"
+    }
+  },
+  "55 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react-is/18.2.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react-is",
+      "rawSpec": "18.2.0"
+    }
+  },
+  "56 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/stylelint/14.14.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "stylelint",
+      "rawSpec": "^14.14.0"
+    }
+  },
+  "57 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/stylelint-config-prettier/9.0.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "stylelint-config-prettier",
+      "rawSpec": "^9.0.3"
+    }
+  },
+  "58 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/stylelint-config-standard/29.0.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "stylelint-config-standard",
+      "rawSpec": "^29.0.0"
+    }
+  },
+  "59 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tailwindcss/3.1.8",
+    "wanted": {
+      "dependentId": ".",
+      "name": "tailwindcss",
+      "rawSpec": "^3.1.8"
+    }
+  },
+  "60 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/ts-node/10.9.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "ts-node",
+      "rawSpec": "^10.9.1"
+    }
+  },
+  "61 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/typescript/4.8.4",
+    "wanted": {
+      "dependentId": ".",
+      "name": "typescript",
+      "rawSpec": "^4.6.4"
+    }
+  },
+  "62 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/vite/3.1.8",
+    "wanted": {
+      "dependentId": ".",
+      "name": "vite",
+      "rawSpec": "^3.1.0"
+    }
+  },
+  "63 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/vite-plugin-imp/2.3.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "vite-plugin-imp",
+      "rawSpec": "^2.3.0"
+    }
+  },
+  "64 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/vitest/0.24.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "vitest",
+      "rawSpec": "^0.24.3"
+    }
+  },
+  "65 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@ant-design/cssinjs/1.4.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@ant-design/cssinjs",
+      "rawSpec": "^1.4.0"
+    }
+  },
+  "66 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@ant-design/plots/1.2.2",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@ant-design/plots",
+      "rawSpec": "^1.2.2"
+    }
+  },
+  "67 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@hookform/resolvers/2.9.10",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@hookform/resolvers",
+      "rawSpec": "^2.9.10"
+    }
+  },
+  "68 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@tanstack/react-query/4.12.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@tanstack/react-query",
+      "rawSpec": "^4.12.0"
+    }
+  },
+  "69 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@tanstack/react-query-devtools/4.12.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@tanstack/react-query-devtools",
+      "rawSpec": "^4.12.0"
+    }
+  },
+  "70 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/antd/5.1.2",
+    "wanted": {
+      "dependentId": ".",
+      "name": "antd",
+      "rawSpec": "^5.1.2"
+    }
+  },
+  "71 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/axios/1.1.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "axios",
+      "rawSpec": "^1.1.3"
+    }
+  },
+  "72 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/i18next/22.0.2",
+    "wanted": {
+      "dependentId": ".",
+      "name": "i18next",
+      "rawSpec": "^22.0.2"
+    }
+  },
+  "73 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/i18next-browser-languagedetector/6.1.8",
+    "wanted": {
+      "dependentId": ".",
+      "name": "i18next-browser-languagedetector",
+      "rawSpec": "^6.1.8"
+    }
+  },
+  "74 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/i18next-http-backend/1.4.4",
+    "wanted": {
+      "dependentId": ".",
+      "name": "i18next-http-backend",
+      "rawSpec": "^1.4.4"
+    }
+  },
+  "75 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/path-to-regexp/6.2.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "path-to-regexp",
+      "rawSpec": "^6.2.1"
+    }
+  },
+  "76 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react/18.2.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react",
+      "rawSpec": "^18.2.0"
+    }
+  },
+  "77 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react-dom/18.2.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react-dom",
+      "rawSpec": "^18.2.0"
+    }
+  },
+  "78 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react-hook-form/7.38.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react-hook-form",
+      "rawSpec": "^7.38.0"
+    }
+  },
+  "79 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react-i18next/12.0.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react-i18next",
+      "rawSpec": "^12.0.0"
+    }
+  },
+  "80 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react-icons/4.6.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react-icons",
+      "rawSpec": "^4.6.0"
+    }
+  },
+  "81 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react-perfect-scrollbar/1.5.8",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react-perfect-scrollbar",
+      "rawSpec": "^1.5.8"
+    }
+  },
+  "82 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react-router-dom/6.4.2",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react-router-dom",
+      "rawSpec": "^6.4.2"
+    }
+  },
+  "83 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/secure-ls/1.2.6",
+    "wanted": {
+      "dependentId": ".",
+      "name": "secure-ls",
+      "rawSpec": "^1.2.6"
+    }
+  },
+  "84 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/styled-components/5.3.6",
+    "wanted": {
+      "dependentId": ".",
+      "name": "styled-components",
+      "rawSpec": "^5.3.6"
+    }
+  },
+  "85 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/zod/3.19.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "zod",
+      "rawSpec": "^3.19.1"
     }
   }
 }

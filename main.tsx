@@ -4,12 +4,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import { ThemeProvider } from 'styled-components';
+import theme from './themes';
 
 import App from '~/App';
-import { ThemeContextProvider } from '~/context/ThemeContext';
 
-import './index.css';
-import 'antd/dist/antd.less';
+import 'antd/dist/reset.css';
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -21,13 +21,13 @@ const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
-		<ThemeContextProvider>
+		<ThemeProvider theme={theme.default}>
 			<QueryClientProvider client={queryClient}>
 				<ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
 				<Router>
 					<App />
 				</Router>
 			</QueryClientProvider>
-		</ThemeContextProvider>
+		</ThemeProvider>
 	</React.StrictMode>,
 );
